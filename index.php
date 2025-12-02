@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <button class="btn btn-primary" type="submit" style="width:100%;">Ingresar</button>
       </form>
-      <div style="margin-top:12px"><small class="text-muted">Usuario demo: sa (ajusta según tu BD)</small></div>
     </div>
   </div>
 
