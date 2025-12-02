@@ -37,10 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script defer src="assets/script.js"></script>
 </head>
 <body>
-  <div class="navbar">
-    <div class="brand"><img src="" alt=""><h1>Sistema UNACH (demo)</h1></div>
-    <div class="nav-links"><a href="#">Ayuda</a></div>
-  </div>
+
 
   <div style="max-width:420px;margin:40px auto;">
     <div class="container">
