@@ -69,7 +69,7 @@ try {
 <head>
 <meta charset="utf-8">
 <title>Ventas | CERTAMEN4_BASE</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="venta.css?v=2">
 <script defer src="assets/script.js"></script>
 </head>
 <body>
@@ -77,9 +77,15 @@ try {
 
 
   <div class="container">
-    <div class="header-row">
-      <div class="header-left"><h2>Gestión de Ventas</h2></div>
-      <div class="header-right"></div>
+    <div class="header-row"style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="header-left">
+        <h2 style="margin: 0; border-left: 5px solid #4a90e2; padding-left: 15px;">Gestión de Catálogo</h2>
+      </div>
+      <div class="header-right">
+        <a href="dashboard.php" class="btn" style="background-color: #555; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px;">
+          ⬅ Volver al Menú
+        </a>
+      </div>
     </div>
 
     <?php if (!empty($mensaje)): ?>
@@ -90,30 +96,37 @@ try {
 
     <div class="card">
       <h3>Registrar nueva venta</h3>
-      <form method="post" action="">
-        <input type="hidden" name="action" value="insertar">
+<form method="post" action="">
+    <input type="hidden" name="action" value="insertar">
+    
+    <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
+    </div>
+
+    <div class="fila-doble">
+        
         <div class="form-group">
-          <label for="fecha">Fecha</label>
-          <input type="date" id="fecha" name="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
+            <label for="num_item">Producto</label>
+            <select id="num_item" name="num_item" class="form-control" required>
+                <?php foreach($catalogos as $item): ?>
+                <option value="<?php echo $item['num_item']; ?>"><?php echo htmlspecialchars($item['nombre']); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
+
         <div class="form-group">
-          <label for="num_item">Producto</label>
-          <select id="num_item" name="num_item" class="form-control" required>
-            <?php foreach($catalogos as $item): ?>
-              <option value="<?php echo $item['num_item']; ?>"><?php echo htmlspecialchars($item['nombre']); ?></option>
-            <?php endforeach; ?>
-          </select>
+            <label for="id_cliente">Cliente</label>
+            <select id="id_cliente" name="id_cliente" class="form-control" required>
+                <?php foreach($clientes as $cliente): ?>
+                <option value="<?php echo $cliente['id_cliente']; ?>"><?php echo htmlspecialchars($cliente['nombre']); ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
-        <div class="form-group">
-          <label for="id_cliente">Cliente</label>
-          <select id="id_cliente" name="id_cliente" class="form-control" required>
-            <?php foreach($clientes as $cliente): ?>
-              <option value="<?php echo $cliente['id_cliente']; ?>"><?php echo htmlspecialchars($cliente['nombre']); ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-        <button class="btn btn-success" type="submit">Registrar Venta</button>
-      </form>
+
+    </div>
+    <button class="btn btn-success" type="submit" style="margin-top: 20px;">Registrar Venta</button>
+</form>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -137,7 +150,7 @@ try {
 <?php foreach($ventas as $v): ?>
 <tr>
     <td><?php echo htmlspecialchars($v['id_venta']); ?></td>
-<td><?php echo htmlspecialchars($v['NombreCliente']); ?></td>
+    <td><?php echo htmlspecialchars($v['NombreCliente']); ?></td>
     <td><?php echo htmlspecialchars($v['fecha']); ?></td>
     <td><?php echo htmlspecialchars($v['NombreProducto']); ?></td>
     <td>$<?php echo number_format((float)$v['costo'],0,',','.'); ?></td>

@@ -1,0 +1,149 @@
+:root {
+    --primary: #4a90e2;
+    --secondary: #2c3e50;
+    --bg-body: #f4f6f9;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: var(--secondary);
+
+    background-image: url('assets/444.webp'); 
+    background-size: cover;       
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- Encabezado --- */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-left h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.muted {
+    color: #7f8c8d;
+    margin: 5px 0 0 0;
+}
+
+/* Botón Logout */
+.btn-logout {
+    text-decoration: none;
+    color: #e74c3c;
+    font-weight: 600;
+    padding: 8px 15px;
+    border: 1px solid #e74c3c;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* --- Badge de Fecha --- */
+.date-badge {
+    background: white;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+/* --- Grid del Dashboard (Lo más importante) --- */
+.dashboard-grid {
+    display: grid;
+    /* Esto crea columnas automáticas que se adaptan */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 25px;
+}
+
+/* Estilo de cada Tarjeta */
+.dash-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--secondary);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+/* Iconos dentro de las tarjetas */
+.icon-box {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    background: #eef5fc;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Círculo perfecto */
+}
+
+.dash-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.dash-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Colores específicos para los iconos (Opcional) */
+.card-green .icon-box { color: #2ecc71; background: #eafaf1; }
+.card-gray .icon-box { color: #95a5a6; background: #f4f6f7; }
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #aaa;
+    font-size: 0.85rem;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.header-left h2, 
+.header-right,
+.footer {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    /* Si usas la Opción B (fondo oscuro), quizás quieras poner el texto blanco: */
+    /* color: white; */ 
+}

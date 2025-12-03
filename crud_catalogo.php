@@ -59,14 +59,21 @@ try {
 <head>
 <meta charset="utf-8">
 <title>Catálogo | CERTAMEN4_BASE</title>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="catalogo.css">
 <script defer src="assets/script.js"></script>
 </head>
 <body>
 
   <div class="container">
     <div class="header-row">
-      <div class="header-left"><h2>Gestión de Catálogo</h2></div>
+      <div class="header-left">
+        <h2>Gestión de Catálogo</h2>
+      </div>
+      <div class="header-right">
+        <a href="dashboard.php" class="btn" style="background-color: #4a90e2; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px;">
+          ⬅ Volver al Menú
+        </a>
+      </div>
     </div>
 
     <?php if (!empty($mensaje)): ?>

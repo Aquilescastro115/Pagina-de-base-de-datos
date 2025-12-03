@@ -1,7 +1,7 @@
 <?php
 // index.php (login)
 session_start();
-include 'db.php';
+include 'db.php'; // Asegúrate de que este archivo exista y conecte bien
 
 $mensaje = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,12 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasena = $_POST['contrasena'] ?? '';
 
     try {
+        // Tu lógica original de conexión
         $stmt = $conn->prepare("{CALL Sp_Login(?, ?)}");
         $stmt->bindParam(1, $usuario);
         $stmt->bindParam(2, $contrasena);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Validación de resultado
         if ($resultado && (isset($resultado['Resultado']) && ((int)$resultado['Resultado'] === 1 || $resultado['Resultado'] === '1'))) {
             $_SESSION['loggedin'] = true;
             $_SESSION['usuario'] = $usuario;
@@ -33,32 +35,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="utf-8">
 <title>Acceso | CERTAMEN4_BASE</title>
-<link rel="stylesheet" href="assets/style.css">
-<script defer src="assets/script.js"></script>
+<link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-
-  <div style="max-width:420px;margin:40px auto;">
-    <div class="container">
+  <div class="login-container">
+      
       <h2>🔒 Acceso al Sistema</h2>
 
       <?php if(!empty($mensaje)): ?>
-          <div class="alert alert-danger"><?php echo htmlspecialchars($mensaje); ?></div>
+          <div class="alert"><?php echo htmlspecialchars($mensaje); ?></div>
       <?php endif; ?>
 
       <form method="post" action="">
         <div class="form-group">
           <label for="usuario">Usuario</label>
-          <input id="usuario" name="usuario" class="form-control" required>
+          <input id="usuario" name="usuario" class="form-control" required autofocus>
         </div>
+        
         <div class="form-group">
           <label for="contrasena">Contraseña</label>
           <input id="contrasena" name="contrasena" type="password" class="form-control" required>
         </div>
-        <button class="btn btn-primary" type="submit" style="width:100%;">Ingresar</button>
+        
+        <button class="btn-primary" type="submit">Ingresar</button>
       </form>
-    </div>
+      
   </div>
 
 </body>

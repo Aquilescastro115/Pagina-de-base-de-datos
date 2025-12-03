@@ -11,34 +11,46 @@ $nombre_usuario = $_SESSION['usuario'] ?? 'Usuario';
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Dashboard | CERTAMEN4_BASE</title>
-<link rel="stylesheet" href="assets/style.css">
-<script defer src="assets/script.js"></script>
+<title>Dashboard | Sistema Ventas</title>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-
   <div class="container">
+    
     <div class="header-row">
       <div class="header-left">
-        <h2>¡Hola de nuevo, <?php echo htmlspecialchars($nombre_usuario); ?>!</h2>
-        <p class="muted">Bienvenido al panel - selecciona una opción del menú.</p>
+        <h2>Hola, <?php echo htmlspecialchars($nombre_usuario); ?> 👋</h2>
+        <p class="muted">Panel de control general</p>
       </div>
-      <div class="header-right">Hoy: <?php echo date('d \d\e F, Y'); ?></div>
+      <div class="header-right">
+        <a href="logout.php" class="btn-logout"><i class="fa-solid fa-power-off"></i> Cerrar Sesión</a>
+      </div>
     </div>
 
-    <div class="menu-inline">
-      <a class="active" href="dashboard.php">Inicio</a>
-      <a href="crud_venta.php">Gestión de Ventas</a>
-      <a href="crud_catalogo.php">Catálogo</a>    
+    <div class="date-badge">
+        <i class="fa-regular fa-calendar"></i> Hoy es <?php echo date('d \d\e F, Y'); ?>
     </div>
 
-    <div class="card">
-      <p>Holaaas saaaaaaaaaassasasasas. esta parte fafa si quieres le pones un texto para que se vea bonito</p>
+    <div class="dashboard-grid">
+      
+      <a href="crud_venta.php" class="dash-card card-blue">
+        <div class="icon-box"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h3>Gestión de Ventas</h3>
+        <p>Registrar y consultar ventas</p>
+      </a>
+
+      <a href="crud_catalogo.php" class="dash-card card-green">
+        <div class="icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <h3>Catálogo</h3>
+        <p>Administrar productos</p>
+      </a>
     </div>
 
     <div class="footer">
-      Universidad Adventista de Chile - Proyecto de Ventas
+      Universidad Adventista de Chile - Proyecto de Ventas -
+      Creado por Rafael Aruti y Diego Castro &copy; <?php echo date('Y'); ?>
     </div>
   </div>
 
