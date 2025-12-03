@@ -85,7 +85,7 @@ try {
 <head>
 <meta charset="utf-8">
 <title>Ventas</title>
-<link rel="stylesheet" href="catalogo.css?v=2">
+<link rel="stylesheet" href="venta.css">
 </head>
 <body>
   <div class="container">

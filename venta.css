@@ -15,14 +15,16 @@ body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
     color: var(--secondary);
 
-    background-image: url('assets/444.webp'); 
-    background-size: cover;       
-    background-position: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    /* Fondo con imagen y filtro oscuro */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('assets/444.webp'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .container {
@@ -33,29 +35,47 @@ body {
 
 /* --- Encabezado y Botón (Flexbox para alinear) --- */
 .header-row {
+    background-color: white; /* Fondo gris muy claro (casi blanco) */
+    padding: 20px 30px;        /* Espacio interno para que "respire" */
+    border-radius: 12px;       /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra muy suave */
+    
+    /* Flexbox para alinear título y botón */
     display: flex;
-    justify-content: space-between; /* Título a izq, botón a der */
-    align-items: center;            /* Centrado vertical */
-    margin-bottom: 25px;
-    flex-wrap: wrap;                /* Para móviles */
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-sizing: border-box; /* Para que el padding no desborde el ancho */
 }
 
+/* Ajuste del Título (Sin la línea lateral, más limpio) */
 .header-left h2 {
     margin: 0;
-    font-size: 1.8rem;
-    color: var(--secondary);
-    border-left: 5px solid var(--primary);
-    padding-left: 15px;
+    color: #2c3e50;    /* Azul oscuro intenso */
+    font-size: 1.5rem; /* Tamaño equilibrado */
+    font-weight: 700;
+    border-left: none; /* Quitamos la línea de color vertical anterior */
+    padding-left: 0;
 }
 
-/* Botón de Volver (Estilo específico) */
+/* Botón "Volver": Estilo Oscuro (Como en la foto) */
 .header-right .btn {
-    background-color: var(--gray-btn);
-    color: white;
+    background-color: #34495e !important; /* Azul grisáceo oscuro */
+    color: white !important;              /* Texto blanco */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: none; /* Estilo más plano y sobrio */
+    transition: all 0.3s ease;
 }
+
 .header-right .btn:hover {
-    background-color: #333; /* Más oscuro al pasar el mouse */
+    background-color: #2c3e50 !important; /* Se oscurece un poco más */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
 }
 
 /* --- Tarjetas (Cards) --- */

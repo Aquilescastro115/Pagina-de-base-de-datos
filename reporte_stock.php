@@ -82,22 +82,15 @@ $reporte_page = array_slice($reporte, $start, $per_page);
 <head>
 <meta charset="utf-8">
 <title>Reporte Bajo Stock</title>
-<link rel="stylesheet" href="assets/stock.css">
+<link rel="stylesheet" href="stock.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <div class="navbar">
-    <div class="brand"><h1>Reporte Stock</h1></div>
-    <div class="nav-links">
-      <a href="dashboard.php">Inicio</a>
-      <a href="logout.php" style="background:#b80000;padding:8px;border-radius:8px;">Salir</a>
-    </div>
-  </div>
-
   <div class="container">
     <div class="header-row">
       <div class="header-left"><h2>Productos con Bajo Stock</h2></div>
       <div class="header-right">
+        <a class="btn" href="dashboard.php">Volver</a>
         <a class="btn" href="reporte_stock.php?export=csv&umbral=<?php echo $umbral;?>&q=<?php echo urlencode($q);?>">Exportar CSV</a>
         <button class="btn" onclick="window.print()">Imprimir</button>
       </div>

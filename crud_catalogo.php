@@ -67,13 +67,17 @@ try {
 <head>
 <meta charset="utf-8">
 <title>Catálogo</title>
-<link rel="stylesheet" href="catalogo.css?v=2">
+<link rel="stylesheet" href="catalogo.css">
 </head>
 <body>
 <div class="container">
     <div class="header-row">
         <div class="header-left"><h2>Gestión de Catálogo</h2></div>
-        <div class="header-right"><a href="dashboard.php" class="btn">⬅ Volver al Menú</a></div>
+        <div class="header-right">
+    <a href="dashboard.php" class="btn">
+       ⬅ Volver al Menú
+    </a>
+</div>
     </div>
     
     <?php if ($mensaje): ?><div class="alert"><?php echo $mensaje; ?></div><?php endif; ?>
@@ -134,7 +138,7 @@ try {
                     <td><?php echo $p['stock']; ?></td>
                     <td>
                         <a href="crud_catalogo.php?edit_id=<?php echo $p['num_item']; ?>" 
-                           class="btn" style="background:#f39c12; color:white; padding:5px 10px; font-size:0.8rem;">Modificar</a>
+                        class="btn btn-warning">Modificar</a>
                         
                         <a href="crud_catalogo.php?delete_id=<?php echo $p['num_item']; ?>" 
                            class="btn btn-ghost" onclick="return confirm('¿Borrar?');">Eliminar</a>

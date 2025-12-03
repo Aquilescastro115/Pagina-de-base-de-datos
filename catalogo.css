@@ -14,14 +14,16 @@ body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
     color: var(--secondary);
 
-    background-image: url('assets/444.webp'); 
-    background-size: cover;       
-    background-position: center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    /* Fondo con imagen y filtro oscuro */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('assets/444.webp'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* --- Contenedor Principal --- */
@@ -33,20 +35,48 @@ body {
 
 /* --- Encabezado y Botón Volver --- */
 .header-row {
+    background-color: white; /* Fondo gris muy claro (casi blanco) */
+    padding: 20px 30px;        /* Espacio interno para que "respire" */
+    border-radius: 12px;       /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra muy suave */
+    
+    /* Flexbox para alinear título y botón */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    box-sizing: border-box; /* Para que el padding no desborde el ancho */
 }
 
+/* Ajuste del Título (Sin la línea lateral, más limpio) */
 .header-left h2 {
     margin: 0;
-    color: var(--secondary-color);
-    font-size: 28px;
-    border-left: 5px solid var(--primary-color);
-    padding-left: 15px;
+    color: #2c3e50;    /* Azul oscuro intenso */
+    font-size: 1.5rem; /* Tamaño equilibrado */
+    font-weight: 700;
+    border-left: none; /* Quitamos la línea de color vertical anterior */
+    padding-left: 0;
 }
 
+/* Botón "Volver": Estilo Oscuro (Como en la foto) */
+.header-right .btn {
+    background-color: #34495e !important; /* Azul grisáceo oscuro */
+    color: white !important;              /* Texto blanco */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: none; /* Estilo más plano y sobrio */
+    transition: all 0.3s ease;
+}
+
+.header-right .btn:hover {
+    background-color: #2c3e50 !important; /* Se oscurece un poco más */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+}
 /* --- Tarjetas (Cards) --- */
 .card {
     background-color: var(--card-bg);
@@ -136,14 +166,7 @@ label {
     color: white;
 }
 
-/* Estilo para el botón de Volver (Opción 1) */
-.header-right .btn {
-    background-color: var(--secondary-color) !important; /* Forza el color */
-}
-
-.header-right .btn:hover {
-    opacity: 0.9;
-}
+/* --- Estilo Específico para el Botón "Volver" --- */
 
 /* --- Tablas --- */
 .table-responsive {
@@ -200,4 +223,34 @@ label {
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     /* Si usas la Opción B (fondo oscuro), quizás quieras poner el texto blanco: */
     /* color: white; */ 
+}
+/* --- CLASE FALTANTE: ALINEACIÓN EN FILAS --- */
+.fila-doble {
+    display: flex;       /* Activa el modo flexible */
+    gap: 20px;           /* Espacio entre las columnas */
+    margin-bottom: 15px; /* Espacio debajo de la fila */
+}
+
+.fila-doble .form-group {
+    flex: 1;             /* Obliga a que ambos ocupen el 50% */
+    margin-bottom: 0;    /* Quita el margen individual */
+}
+
+/* Responsivo: En celulares se ponen uno debajo del otro */
+@media (max-width: 600px) {
+    .fila-doble {
+        flex-direction: column;
+    }
+}
+
+/* --- MEJORA: Botón Modificar (Amarillo) --- */
+/* Para quitar el estilo en línea del botón naranja en la tabla */
+.btn-warning {
+    background-color: #f39c12;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+}
+.btn-warning:hover {
+    background-color: #e67e22;
 }
