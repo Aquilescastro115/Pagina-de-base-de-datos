@@ -48,6 +48,20 @@ $nombre_usuario = $_SESSION['usuario'] ?? 'Usuario';
       </a>
     </div>
 
+      <a href="reporte_iva.php" class="dash-card card-green">
+        <div class="icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <h3>IVA</h3>
+        <p>Administrar productos</p>
+      </a>
+    </div>
+
+      <a href="reporte_stock.php" class="dash-card card-green">
+        <div class="icon-box"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <h3>Reporte</h3>
+        <p>Administrar productos</p>
+      </a>
+    </div>
+
     <div class="footer">
       Universidad Adventista de Chile - Proyecto de Ventas -
       Creado por Rafael Aruti y Diego Castro &copy; <?php echo date('Y'); ?>

@@ -1,7 +1,7 @@
 <?php
 // db.php
-$serverName = "RAFANOTEE\SQLEXPRESS"; // Tu Nombre de Servidor (De la imagen: DIEGO\SQLEXPRESS02)
-$database = "Negocio"; // Nombre de tu BD (De la imagen: CERTAMEN4_BASE)
+$serverName = "DIEGO\SQLEXPRESS02"; // Tu Nombre de Servidor (De la imagen: DIEGO\SQLEXPRESS02)
+$database = "CERTAMEN4_BASE"; // Nombre de tu BD (De la imagen: CERTAMEN4_BASE)
 $uid = "sa"; // Tu usuario de SQL Server (De la imagen: sa)
 $pwd = "1234"; // **IMPORTANTE: CAMBIA ESTO por tu contraseña**
 
