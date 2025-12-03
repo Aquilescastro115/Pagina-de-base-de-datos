@@ -5,14 +5,14 @@ BEGIN
 END
 GO
 
--- A. Eliminar FKs antiguas (si existen) para recrearlas
+
 IF OBJECT_ID('FK_Venta_Catalogo', 'F') IS NOT NULL
     ALTER TABLE Venta DROP CONSTRAINT FK_Venta_Catalogo;
 IF OBJECT_ID('FK_Venta_Cliente', 'F') IS NOT NULL
     ALTER TABLE Venta DROP CONSTRAINT FK_Venta_Cliente;
 GO
 
--- B. Crear/Recrear las Foreign Keys
+
 ALTER TABLE Venta
 ADD CONSTRAINT FK_Venta_Catalogo
 FOREIGN KEY (num_item) REFERENCES Catalogo(num_item);
@@ -55,10 +55,6 @@ else
 END
 GO
 
--- 2.2. CRUD VENTA (TABLA PRINCIPAL)
---------------------------------------------------------------------------------
--- 2. Construya un CRUD a la tabla principal (Venta)
--- CREATE (Corregido: id_venta es IDENTITY)
 IF OBJECT_ID('sp_InsertarVenta', 'P') IS NOT NULL DROP PROCEDURE sp_InsertarVenta
 GO
 CREATE PROCEDURE sp_InsertarVenta
