@@ -1,0 +1,211 @@
+:root {
+    --primary: #4a90e2;      /* Azul principal */
+    --secondary: #2c3e50;    /* Texto oscuro */
+    --accent: #9b59b6;       /* Púrpura (Color distintivo para IVA) */
+    --white: #ffffff;
+    --shadow: 0 8px 20px rgba(0,0,0,0.08);
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: var(--secondary);
+
+    /* Fondo consistente con el resto del sistema */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('assets/444.webp'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+/* --- Encabezado Flotante --- */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95); /* Blanco semi-transparente */
+    padding: 20px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-left: 5px solid var(--accent); /* Borde Púrpura */
+}
+
+.header-left h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--secondary);
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Controles de Búsqueda y Filtro --- */
+#controlsForm {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 25px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-right: 5px;
+}
+
+.form-control {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* --- Botones --- */
+.btn {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+}
+
+/* Botón "Aplicar" en color primario */
+button[type="submit"].btn {
+    background-color: var(--primary);
+}
+button[type="submit"].btn:hover {
+    background-color: #357abd;
+}
+
+/* Botón "Reset" estilo fantasma */
+#resetBtn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ccc;
+}
+#resetBtn:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+/* --- Tarjeta y Tabla --- */
+.card {
+    background: var(--white);
+    padding: 0; /* Sin padding para que la tabla llegue a los bordes */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Para recortar las esquinas de la tabla */
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: var(--secondary);
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.data-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.data-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+
+.precio-iva {
+    font-weight: bold;
+    color: var(--accent); 
+    font-size: 1.05rem;
+}
+
+
+.alert {
+    padding: 15px;
+    background-color: #fceceb;
+    color: #e74c3c;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e74c3c;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    #controlsForm {
+        flex-direction: column;
+        align-items: stretch !important; /* Fuerza a ocupar el ancho */
+    }
+    .form-control {
+        width: 100% !important; /* Sobrescribe el estilo inline de PHP */
+        margin-bottom: 10px;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+/* Estilos específicos para impresión */
+@media print {
+    body { background: white; color: black; padding: 0; }
+    .header-right, #controlsForm { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .data-table th { background-color: #ddd; color: black; }
+}
